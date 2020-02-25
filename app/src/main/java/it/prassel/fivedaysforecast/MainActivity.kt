@@ -2,6 +2,7 @@ package it.prassel.fivedaysforecast
 
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
     private var forecastResponse : ForecastResponse? = null
     private var fiveDay9AMWeather : List<ListItem?>? = null
+
+    val mHandler : Handler = Handler()
 
     private inner class PagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
@@ -107,13 +110,23 @@ class MainActivity : AppCompatActivity() {
         tablayout.setTabTextColors(Color.parseColor("#66FFFFFF"), Color.parseColor("#FFFFFF"))
         tablayout.setSelectedTabIndicatorColor(Color.WHITE)
 
+        //Missed the tablayout bind... added Today
+        tablayout.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(LayoutTab: TabLayout.Tab) {
+                val delay = 100
+                mHandler.postDelayed(
+                    Runnable { pager.setCurrentItem(LayoutTab.position) },
+                    delay.toLong()
+                )
+            }
+
+            override fun onTabUnselected(LayoutTab: TabLayout.Tab) {}
+
+            override fun onTabReselected(LayoutTab: TabLayout.Tab) {}
+        })
+
         pager.offscreenPageLimit = 5
         pager!!.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tablayout))
-
-        this.fiveDay9AMWeather?.forEach {
-            println("-- <WeatherTime> ${it?.dtTxt}")
-        }
-
 
 
     }
