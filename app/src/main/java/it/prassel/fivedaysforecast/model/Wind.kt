@@ -9,5 +9,11 @@ class Wind : Serializable {
 	val deg: Int? = null
 
 	@field:SerializedName("speed")
-	val speed: Double? = null
+    var speed: Double? = null
+
+	override fun toString(): String {
+		return "Wind(deg=$deg, speed=$speed)"
+	}
+
+
 }

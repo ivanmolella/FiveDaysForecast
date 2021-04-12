@@ -33,6 +33,10 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    implementation 'com.afollestad.material-dialogs:core:0.9.3.0'
+
+    //Google Play Services
+    implementation "com.google.android.gms:play-services-location:${versions.playServicesLocation}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
