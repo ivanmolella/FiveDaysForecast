@@ -6,29 +6,35 @@ import java.io.Serializable
 class Main : Serializable{
 
 	@field:SerializedName("temp")
-	val temp: Double? = null
+	var temp: Double? = null
 
 	@field:SerializedName("temp_min")
-	val tempMin: Double? = null
+	var tempMin: Double? = null
 
 	@field:SerializedName("grnd_level")
-	val grndLevel: Int? = null
+	var grndLevel: Int? = null
 
 	@field:SerializedName("temp_kf")
-	val tempKf: Double? = null
+	var tempKf: Double? = null
 
 	@field:SerializedName("humidity")
-	val humidity: Int? = null
+	var humidity: Int? = null
 
 	@field:SerializedName("pressure")
-	val pressure: Int? = null
+	var pressure: Int? = null
 
 	@field:SerializedName("sea_level")
-	val seaLevel: Int? = null
+	var seaLevel: Int? = null
 
 	@field:SerializedName("feels_like")
-	val feelsLike: Double? = null
+	var feelsLike: Double? = null
 
 	@field:SerializedName("temp_max")
-	val tempMax: Double? = null
+	var tempMax: Double? = null
+
+	override fun toString(): String {
+		return "Main(temp=$temp, tempMin=$tempMin, grndLevel=$grndLevel, tempKf=$tempKf, humidity=$humidity, pressure=$pressure, seaLevel=$seaLevel, feelsLike=$feelsLike, tempMax=$tempMax)"
+	}
+
+
 }

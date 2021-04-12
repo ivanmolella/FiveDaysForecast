@@ -16,4 +16,10 @@ class WeatherItem : Serializable {
 
 	@field:SerializedName("id")
 	val id: Int? = null
+
+	override fun toString(): String {
+		return "WeatherItem(icon=$icon, description=$description, main=$main, id=$id)"
+	}
+
+
 }
