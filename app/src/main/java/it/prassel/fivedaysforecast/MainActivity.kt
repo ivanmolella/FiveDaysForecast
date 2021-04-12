@@ -27,7 +27,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        const val CITY_NAME = "London"
+        const val CITY_NAME = "Rome"
     }
 
     private var adapter : PagerAdapter? = null
